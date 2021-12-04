@@ -1,0 +1,15 @@
+.navigation-drawer {
+    height: 100%;
+    
+    .navigation-drawer__nav {
+        width: 250px;
+    }
+
+    .navigation-drawer__content {
+        padding: 1em;
+    }
+}
+
+.toolbar__spacer {
+    flex: 1 1 auto;
+}
