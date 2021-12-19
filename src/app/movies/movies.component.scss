@@ -1,0 +1,10 @@
+.movie-card {
+    max-width: 300px;
+}
+
+.movies-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1em;
+}
