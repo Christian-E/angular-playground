@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { delay, Observable, of } from 'rxjs';
 import { Movie, MovieType } from '../models/movie';
 import { movies } from './data';
 
@@ -11,7 +11,9 @@ export class MoviesService {
   constructor() { }
 
   getMovies(): Observable<Movie[]> {
-    return of(this.movies());
+    return of(this.movies()).pipe(
+      delay(1500)
+    );
   }
 
   private movies(): Movie[] {

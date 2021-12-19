@@ -1,22 +1,23 @@
-<div *ngIf="(movies | async) as movies; else loading">
-    <div *ngIf="movies.length > 0; else empty" class="movies-wrapper">
-        <mat-card *ngFor="let movie of movies" class="movie-card">
-            <mat-card-header>
-              <mat-card-title>{{movie.name}}</mat-card-title>
-              <mat-card-subtitle>{{movie.genre}}</mat-card-subtitle>
-            </mat-card-header>
-            <img mat-card-image src="{{movie.posterUri}}" alt="The movies poster">
-            <mat-card-content>
-              <p>
-                {{movie.description}}
-              </p>
-            </mat-card-content>
-            <mat-card-actions>
-              <button mat-button>LIKE</button>
-              <button mat-button>SHARE</button>
-            </mat-card-actions>
-          </mat-card>
-    </div>
-    <ng-template #empty>No data.</ng-template>
+<div *ngIf="(movies | async) as movies; else loading" class="movies-wrapper">
+    <mat-card *ngFor="let movie of movies" class="movie-card">
+        <mat-card-header>
+            <mat-card-title>{{movie.name}}</mat-card-title>
+            <mat-card-subtitle>{{movie.genre}}</mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image class="movie-card__image" src="{{movie.posterUri}}" alt="The movies poster">
+        <mat-card-content>
+            <p>
+            {{movie.description}}
+            </p>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-button>LIKE</button>
+            <button mat-button>SHARE</button>
+        </mat-card-actions>
+        </mat-card>
 </div>
-<ng-template #loading>Loading...</ng-template>
+<ng-template #loading>
+    <div class="progress-wrapper">
+        <mat-progress-bar class="progress-bar" mode="indeterminate"></mat-progress-bar>
+    </div>
+</ng-template>

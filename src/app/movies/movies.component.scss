@@ -1,10 +1,26 @@
-.movie-card {
-    max-width: 300px;
-}
-
 .movies-wrapper {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 1em;
+}
+
+.movie-card {
+    max-width: 300px;
+
+    .movie-card__image {
+        height: 200px;
+        object-fit: cover;
+    }
+}
+
+.progress-wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+
+    .progress-bar{
+        width: 50%;
+    }
 }
