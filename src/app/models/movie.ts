@@ -6,6 +6,7 @@ export interface Movie {
     director: string;
     runtime: string;
     actors: string[];
+    releaseYear: string;
     type: MovieType;
     posterUri?: string;
 }

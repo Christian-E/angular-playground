@@ -25,6 +25,7 @@ export class MoviesService {
       director: m.Director,
       runtime: m.Runtime,
       actors: m.Actors.split(','),
+      releaseYear: m.Year,
       type: m.Type as MovieType,
       posterUri: m.Images[0]
     })
