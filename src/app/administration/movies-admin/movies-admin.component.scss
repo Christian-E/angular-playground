@@ -1,0 +1,13 @@
+.movie-filter {
+    width: 100%;
+}
+.progress-wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+
+    .progress-bar{
+        width: 50%;
+    }
+}

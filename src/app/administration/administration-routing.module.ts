@@ -1,8 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AdministrationComponent } from './administration.component';
+import { MovieEditComponent } from './movie-edit/movie-edit.component';
+import { MoviesAdminComponent } from './movies-admin/movies-admin.component';
 
-const routes: Routes = [{ path: '', component: AdministrationComponent }];
+const routes: Routes = [
+  { path: '', component: MoviesAdminComponent },
+  { path: ':id', component: MovieEditComponent }
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

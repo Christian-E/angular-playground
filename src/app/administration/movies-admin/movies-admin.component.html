@@ -1,0 +1,16 @@
+<div *ngIf="filteredMovies() as movies; else loading">
+    <mat-form-field appearance="fill" class="movie-filter">
+        <mat-label>Filter</mat-label>
+        <input matInput [(ngModel)]="filterString">
+    </mat-form-field>
+    <mat-nav-list>
+        <a mat-list-item routerLink="/administration/{{movie.id}}" *ngFor="let movie of movies">
+            {{movie.name}} ({{movie.releaseYear}})
+        </a>
+    </mat-nav-list>
+</div>
+<ng-template #loading>
+    <div class="progress-wrapper">
+        <mat-progress-bar class="progress-bar" mode="indeterminate"></mat-progress-bar>
+    </div>
+</ng-template>
