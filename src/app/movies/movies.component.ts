@@ -11,8 +11,8 @@ import { MoviesService } from '../services/movies.service';
 export class MoviesComponent implements OnInit {
 
   public movies: Observable<Movie[]>;
-  constructor(private movieService: MoviesService) { 
-    this.movies = this.movieService.getMovies();
+  constructor(private moviesService: MoviesService) { 
+    this.movies = this.moviesService.getMovies();
   }
 
   ngOnInit(): void {
