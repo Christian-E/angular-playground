@@ -4,9 +4,7 @@ export interface Movie {
     description: string;
     genre: string;
     director: string;
-    runtime: string;
     actors: string[];
-    releaseYear: string;
     type: MovieType;
     posterUri?: string;
 }

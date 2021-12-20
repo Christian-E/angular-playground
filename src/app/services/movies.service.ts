@@ -16,6 +16,15 @@ export class MoviesService {
     );
   }
 
+  getMovie(id: string): Observable<Movie|undefined> {
+    const movie = this.movies().find(m => m.id == id);
+    return of(movie);
+  }
+
+  putMovie(movie: Movie): Observable<any> {
+    return of(null);
+  }
+
   private movies(): Movie[] {
     return movies.map(m => ({
       id: m.imdbID,
@@ -23,9 +32,7 @@ export class MoviesService {
       description: m.Plot,
       genre: m.Genre,
       director: m.Director,
-      runtime: m.Runtime,
       actors: m.Actors.split(','),
-      releaseYear: m.Year,
       type: m.Type as MovieType,
       posterUri: m.Images[0]
     })
