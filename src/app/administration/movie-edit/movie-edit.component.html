@@ -1,1 +1,40 @@
-<p>movie-edit works!</p>
+<div *ngIf="movie; else loading" class="movie-form">
+    <h1>{{movie.name | uppercase}}</h1>
+    <mat-form-field appearance="fill">
+        <mat-label>Name</mat-label>
+        <input matInput [(ngModel)]="movie.name">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Description</mat-label>
+        <textarea matInput [(ngModel)]="movie.description"></textarea>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Genre</mat-label>
+        <input matInput [(ngModel)]="movie.genre">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Director</mat-label>
+        <input matInput [(ngModel)]="movie.director">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Actors</mat-label>
+        <input matInput [(ngModel)]="movieActors">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Poster</mat-label>
+        <input matInput type="url" [(ngModel)]="movie.posterUri">
+    </mat-form-field>
+    <mat-radio-group [(ngModel)]="movie.type" class="movie-form__type">
+        <mat-radio-button class="example-radio-button" [value]="MovieType.movie">Movie</mat-radio-button>
+        <mat-radio-button class="example-radio-button" [value]="MovieType.series">Series</mat-radio-button>
+    </mat-radio-group>
+    <div class="movie-form__action-wrapper">
+        <button mat-button color="primary" (click)="save()">Save</button>
+    </div>
+</div>
+
+<ng-template #loading>
+    <div class="progress-wrapper">
+        <mat-progress-bar class="progress-bar" mode="indeterminate"></mat-progress-bar>
+    </div>
+</ng-template>

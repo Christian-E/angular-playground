@@ -1,0 +1,26 @@
+.movie-form{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+
+    .movie-form__type{
+        display: flex;
+        gap: 1em;
+    }
+
+    .movie-form__action-wrapper {
+        display: flex;
+        justify-content: end;
+    }
+}
+
+.progress-wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+
+    .progress-bar{
+        width: 50%;
+    }
+}
