@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Observable, of } from 'rxjs';
 import { Movie } from '../models/movie';
 
 
@@ -8,8 +9,8 @@ import { Movie } from '../models/movie';
 })
 export class WatchlistService {
 
-  watchlist: string[] = [];
-  watched: string[] = [];
+  private watchlist: string[] = [];
+  private watched: string[] = [];
 
   constructor() { }
 
@@ -19,7 +20,7 @@ export class WatchlistService {
       }
   }
 
-  getWatchlistMovieIds(): string[] {
-    return this.watchlist;
+  isOnWatchlist(movie: Movie): Observable<boolean> {
+    return of(this.watchlist.includes(movie.id));
   }
 }
