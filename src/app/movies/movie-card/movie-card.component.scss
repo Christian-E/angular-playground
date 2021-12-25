@@ -1,0 +1,18 @@
+:host {
+    display: flex;
+}
+
+.movie-card {
+    display: flex;
+    flex-direction: column;
+    max-width: 300px;
+
+    .movie-card__content {
+        flex: 1 1 auto;
+    }
+
+    .movie-card__image {
+        height: 200px;
+        object-fit: cover;
+    }
+}

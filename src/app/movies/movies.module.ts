@@ -7,11 +7,13 @@ import { MoviesComponent } from './movies/movies.component';
 import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
+import { MovieCardComponent } from './movie-card/movie-card.component';
 
 
 @NgModule({
   declarations: [
-    MoviesComponent
+    MoviesComponent,
+    MovieCardComponent
   ],
   imports: [
     CommonModule,
