@@ -14,13 +14,19 @@ export class WatchlistService {
 
   constructor() { }
 
-  addToWatchlist(movie: Movie) {
+  public addToWatchlist(movie: Movie): Observable<any> {
       if (!this.watchlist.includes(movie.id)) {
         this.watchlist.push(movie.id);
       }
+      return of(null);
   }
 
-  isOnWatchlist(movie: Movie): Observable<boolean> {
+  public removeFromWatchlist(movie: Movie): Observable<any> {
+    this.watchlist = this.watchlist.filter(m => m != movie.id);
+    return of(null);
+  }
+
+  public isOnWatchlist(movie: Movie): Observable<boolean> {
     return of(this.watchlist.includes(movie.id));
   }
 }

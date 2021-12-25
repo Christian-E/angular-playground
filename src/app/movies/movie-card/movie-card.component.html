@@ -1,4 +1,4 @@
-<mat-card class="movie-card" *ngIf="movie !== undefined">
+<mat-card class="movie-card" [ngClass]="{'movie-card--watchlist': isOnWatchlist}" *ngIf="movie !== undefined">
     <mat-card-header>
         <mat-card-title>{{movie.name | uppercase}}</mat-card-title>
         <mat-card-subtitle>{{movie.genre}}</mat-card-subtitle>
@@ -10,7 +10,13 @@
         </p>
     </mat-card-content>
     <mat-card-actions>
-        <button mat-button>LIKE</button>
-        <button mat-button>SHARE</button>
+        <button mat-button *ngIf="!isOnWatchlist" (click)="addToWatchlist()">
+            <mat-icon aria-hidden="false" aria-label="Add icon">add</mat-icon>
+            Add to watchlist
+        </button>
+        <button mat-button *ngIf="isOnWatchlist" (click)="removeFromWatchlist()">
+            <mat-icon aria-hidden="false" aria-label="Remove icon">remove</mat-icon>
+            Remove from watchlist
+        </button>
     </mat-card-actions>
 </mat-card>
