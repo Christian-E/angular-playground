@@ -2,15 +2,12 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { Movie } from '../models/movie';
 
-
-
 @Injectable({
   providedIn: 'root'
 })
 export class WatchlistService {
 
   private watchlist: string[] = [];
-  private watched: string[] = [];
 
   constructor() { }
 
@@ -28,5 +25,9 @@ export class WatchlistService {
 
   public isOnWatchlist(movie: Movie): Observable<boolean> {
     return of(this.watchlist.includes(movie.id));
+  }
+
+  public getWatchlist(): Observable<string[]> {
+    return of(this.watchlist);
   }
 }

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Movie } from 'src/app/models/movie';
 import { WatchlistService } from 'src/app/services/watchlist.service';
 
@@ -10,6 +10,7 @@ import { WatchlistService } from 'src/app/services/watchlist.service';
 export class MovieCardComponent implements OnInit {
 
   @Input() movie: Movie|undefined = undefined;
+  @Output() removedFromWatchlistEvent = new EventEmitter<string>();
 
   public isOnWatchlist: boolean = false;
 
@@ -46,6 +47,7 @@ export class MovieCardComponent implements OnInit {
       this.watchlistService.removeFromWatchlist(this.movie).subscribe(
         () => {
           this.isOnWatchlist = false;
+          this.removedFromWatchlistEvent.emit(this.movie?.id);
         },
         error => {
           console.error(error);

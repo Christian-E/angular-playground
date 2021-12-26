@@ -1,0 +1,17 @@
+.movies-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1em;
+}
+
+.progress-wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+
+    .progress-bar{
+        width: 50%;
+    }
+}

@@ -1,0 +1,9 @@
+<div *ngIf="(watchlistMovies | async) as movies; else loading" class="movies-wrapper">
+    <app-movie-card *ngFor="let movie of movies" [movie]="movie">
+    </app-movie-card>
+</div>
+<ng-template #loading>
+    <div class="progress-wrapper">
+        <mat-progress-bar class="progress-bar" mode="indeterminate"></mat-progress-bar>
+    </div>
+</ng-template>

@@ -9,13 +9,15 @@ import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatIconModule} from '@angular/material/icon';
+import { WatchlistComponent } from './watchlist/watchlist.component';
 
 
 
 @NgModule({
   declarations: [
     MoviesComponent,
-    MovieCardComponent
+    MovieCardComponent,
+    WatchlistComponent
   ],
   imports: [
     CommonModule,
