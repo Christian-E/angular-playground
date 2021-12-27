@@ -20,7 +20,8 @@ export class MoviesAdminComponent implements OnInit {
     this.moviesService.getMovies().subscribe(
       data => {
         this.movies = data;
-      }
+      },
+      error => console.error(error)
     )
   }
 
