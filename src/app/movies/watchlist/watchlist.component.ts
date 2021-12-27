@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { forkJoin, map, Observable } from 'rxjs';
+import { combineLatest, map, Observable } from 'rxjs';
 import { Movie } from 'src/app/models/movie';
 import { MoviesService } from 'src/app/services/movies.service';
 import { WatchlistService } from 'src/app/services/watchlist.service';
@@ -16,7 +16,7 @@ export class WatchlistComponent implements OnInit {
     const movies$ = this.moviesService.getMovies();
     const watchlist$ = this.watchlistService.getWatchlist();
 
-    const watchlistMovies$: Observable<Movie[]> = forkJoin([movies$, watchlist$]).pipe(
+    const watchlistMovies$: Observable<Movie[]> = combineLatest([movies$, watchlist$]).pipe(
       map(
         data => {
           const movies: Movie[] = data[0];
@@ -30,5 +30,4 @@ export class WatchlistComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
 }
