@@ -1,3 +1,4 @@
+<h1>Watchlist</h1>
 <div *ngIf="(watchlistMovies | async) as movies; else loading" class="movies-wrapper">
     <app-movie-card *ngFor="let movie of movies" [movie]="movie">
     </app-movie-card>
