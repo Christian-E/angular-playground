@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Movie } from '../../models/movie';
 import { MoviesService } from '../../services/movies.service';
@@ -8,15 +8,10 @@ import { MoviesService } from '../../services/movies.service';
   templateUrl: './movies.component.html',
   styleUrls: ['./movies.component.scss']
 })
-export class MoviesComponent implements OnInit {
+export class MoviesComponent  {
 
   public movies: Observable<Movie[]>;
   constructor(private moviesService: MoviesService) { 
     this.movies = this.moviesService.getMovies();
   }
-
-  ngOnInit(): void {
-    
-  }
-
 }

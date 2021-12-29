@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Movie } from 'src/app/models/movie';
 import { WatchlistService } from 'src/app/services/watchlist.service';
 

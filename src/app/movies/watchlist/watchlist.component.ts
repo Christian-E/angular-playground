@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { combineLatest, map, Observable } from 'rxjs';
 import { Movie } from 'src/app/models/movie';
 import { MoviesService } from 'src/app/services/movies.service';
@@ -9,7 +9,7 @@ import { WatchlistService } from 'src/app/services/watchlist.service';
   templateUrl: './watchlist.component.html',
   styleUrls: ['./watchlist.component.scss']
 })
-export class WatchlistComponent implements OnInit {
+export class WatchlistComponent  {
 
   public watchlistMovies: Observable<Movie[]>;
   constructor(private moviesService: MoviesService, private watchlistService: WatchlistService) { 
@@ -26,8 +26,5 @@ export class WatchlistComponent implements OnInit {
       )
     );
     this.watchlistMovies = watchlistMovies$;
-  }
-
-  ngOnInit(): void {
   }
 }

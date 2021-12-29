@@ -48,5 +48,4 @@ export class MovieEditComponent implements OnInit {
       );
     }
   }
-
 }

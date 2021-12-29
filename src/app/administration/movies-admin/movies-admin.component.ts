@@ -31,5 +31,4 @@ export class MoviesAdminComponent implements OnInit {
     }
     return this.movies.filter(m => m.name.toLowerCase().includes(this.filterString.toLowerCase()));
   }
-
 }
