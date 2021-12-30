@@ -11,7 +11,7 @@ export class MovieCardComponent implements OnInit {
 
   @Input() movie: Movie|undefined = undefined;
 
-  public isOnWatchlist: boolean = false;
+  public isOnWatchlist = false;
 
   constructor(private watchlistService: WatchlistService) { }
 

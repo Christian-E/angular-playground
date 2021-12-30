@@ -10,7 +10,7 @@ import { MoviesService } from '../../services/movies.service';
 export class MoviesAdminComponent implements OnInit {
 
   public movies: Movie[] | undefined;
-  public filterString: string = '';
+  public filterString = '';
 
   constructor(private moviesService: MoviesService) { 
     

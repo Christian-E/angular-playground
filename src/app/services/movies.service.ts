@@ -8,8 +8,6 @@ import { movies } from './data';
 })
 export class MoviesService {
 
-  constructor() { }
-
   getMovies(): Observable<Movie[]> {
     return of(this.movies()).pipe(
       delay(1500)
