@@ -34,7 +34,8 @@ export class MovieEditComponent implements OnInit {
       this.moviesService.getMovie(id).subscribe(
         data => {
           this.movie = data;
-        }
+        },
+        error => console.error(error)
       )
     }
   }
