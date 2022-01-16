@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, of } from 'rxjs';
+import { BehaviorSubject, map, Observable, of } from 'rxjs';
 import { Movie } from '../models/movie';
-
-
 
 @Injectable({
   providedIn: 'root'
@@ -16,25 +14,25 @@ export class WatchlistService {
     this.watchlist$ = new BehaviorSubject<string[]>(this.watchlist);
    }
 
-  public addToWatchlist(movie: Movie): Observable<any> {
+  public addToWatchlist(movie: Movie) {
       if (!this.watchlist.includes(movie.id)) {
         this.watchlist.push(movie.id);
         this.watchlist$.next(this.watchlist);
       }
-      return of(null);
   }
 
-  public removeFromWatchlist(movie: Movie): Observable<any> {
+  public removeFromWatchlist(movie: Movie) {
     this.watchlist = this.watchlist.filter(m => m != movie.id);
     this.watchlist$.next(this.watchlist);
-    return of(null);
-  }
-
-  public isOnWatchlist(movie: Movie): Observable<boolean> {
-    return of(this.watchlist.includes(movie.id));
   }
 
   public getWatchlist(): Observable<string[]> {
     return this.watchlist$;
+  }
+
+  public getIsOnWatchlist(movie: Movie): Observable<boolean> {
+    return this.watchlist$.pipe(
+      map(watchlist => watchlist.includes(movie.id))
+    );
   }
 }

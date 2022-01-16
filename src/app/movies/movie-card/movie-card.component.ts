@@ -17,7 +17,7 @@ export class MovieCardComponent implements OnInit {
 
   ngOnInit(): void {
     if(this.movie !== undefined) {
-      this.watchlistService.isOnWatchlist(this.movie).subscribe(
+      this.watchlistService.getIsOnWatchlist(this.movie).subscribe(
         data => {
           this.isOnWatchlist = data;
         },
@@ -30,28 +30,13 @@ export class MovieCardComponent implements OnInit {
 
   public addToWatchlist() {
     if(this.movie !== undefined) {
-      this.watchlistService.addToWatchlist(this.movie).subscribe(
-        () => {
-          this.isOnWatchlist = true;
-        },
-        error => {
-          console.error(error);
-        }
-      );
+      this.watchlistService.addToWatchlist(this.movie);
     }
   }
 
   public removeFromWatchlist() {
     if(this.movie !== undefined) {
-      this.watchlistService.removeFromWatchlist(this.movie).subscribe(
-        () => {
-          this.isOnWatchlist = false;
-        },
-        error => {
-          console.error(error);
-        }
-      );
+      this.watchlistService.removeFromWatchlist(this.movie);
     }
   }
-
 }
