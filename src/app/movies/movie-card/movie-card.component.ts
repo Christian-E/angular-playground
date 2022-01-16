@@ -17,13 +17,10 @@ export class MovieCardComponent implements OnInit {
 
   ngOnInit(): void {
     if(this.movie !== undefined) {
-      this.watchlistService.getIsOnWatchlist(this.movie).subscribe(
-        data => {
-          this.isOnWatchlist = data;
-        },
-        error => {
-          console.error(error);
-        }
+      this.watchlistService.getIsOnWatchlist(this.movie).subscribe({
+        next: data => this.isOnWatchlist = data,
+        error: e => console.error(e)
+      }
       )
     }
   }

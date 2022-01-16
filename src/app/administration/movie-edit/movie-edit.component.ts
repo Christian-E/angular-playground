@@ -31,12 +31,10 @@ export class MovieEditComponent implements OnInit {
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
     if(id) {
-      this.moviesService.getMovie(id).subscribe(
-        data => {
-          this.movie = data;
-        },
-        error => console.error(error)
-      )
+      this.moviesService.getMovie(id).subscribe({
+        next: data => this.movie = data,
+        error: error => console.error(error)
+      });
     }
   }
 
